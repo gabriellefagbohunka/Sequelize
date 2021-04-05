@@ -5,10 +5,10 @@ import apiRoutes from './routes/apiRoutes.js';
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-
+const staticf = 'public'; 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(express.static(staticf));
 app.use('/api', apiRoutes);
 
 async function bootServer() {
