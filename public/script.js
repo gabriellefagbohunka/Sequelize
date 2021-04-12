@@ -8,7 +8,7 @@ async function diningHalls() {
         foodVar.innerHTML =`
             <td>${z.hall_id}<td/>
             <td>${z.hall_name}<td/>
-            <td>${z.hall_location}<td/>`;
+            <td>${z.hall_address}<td/>`;
             y.append(foodVar);
     });
 }
