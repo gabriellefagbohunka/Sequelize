@@ -83,6 +83,44 @@ router.put("/dining", async (req, res) => {
   }
 });
 
+router.route('/holdmeal')
+.get(async (req, res) => {
+  try {
+    const meals = await db.Meals.findAll();
+    const macros = await db.Macros.findAll();
+    const wholeMeals = meals.map((meal) =>{
+      const macroEntry = macros.find((macro) => macro.meal_id === meal.meal_id);
+      console.log('meal', meal)
+      console.log('macroEntry', macroEntry);
+
+      return{
+        ...meal.dataValues,
+        ...macroEntry.dataValues
+      };
+    });
+    res.json({data: wholeMeals});
+  }catch(err){
+    console.error(err);
+    res.json({message: "Server broke"});
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /// /////////////////////////////////
 /// ////////Meals Endpoints//////////
 /// /////////////////////////////////
