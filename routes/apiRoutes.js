@@ -83,7 +83,7 @@ router.put("/dining", async (req, res) => {
   }
 });
 
-router.route('/holdmeal')
+router.route('/wholeMeal')
 .get(async (req, res) => {
   try {
     const meals = await db.Meals.findAll();
