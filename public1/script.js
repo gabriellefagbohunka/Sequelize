@@ -11,7 +11,7 @@ async function getMeals(){
     return diningData;
 }
 
-async function windowActions(){
+async function tableData(){
     console.log('loaded window');
     const results = await getMeals();
     const meals = results.data;
@@ -41,10 +41,10 @@ async function windowActions(){
         y.append(foodVar);
     });
 
-}
-window.onload = windowActions;
+// }
+// window.onload = windowActions;
 
-window.onload = function () {
+async function chartData() {
 
         const chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
@@ -85,18 +85,25 @@ window.onload = function () {
             ]
         }] 
     });  
-chart.render();
+// chart.render();
 
-function toggleDataSeries(e) {
-    if(typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-        e.dataSeries.visible = false;
-    }
-    else {
-        e.dataSeries.visible = true;
-    }
-    chart.render();
-    }); 
-    // } 
+// function toggleDataSeries(e) {
+//     if(typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+//         e.dataSeries.visible = false;
+//     }
+//     else {
+//         e.dataSeries.visible = true;
+//     }
+//     chart.render();
+// }
+
+
+// return selectedMeals;
+
+// }
+// async function windowActions(){
+//     const data = await getMeals();
+//     const data2 = tableData();
+// };
 }
-
-// window.onload = windowActions;
+window.onload = tableData;
